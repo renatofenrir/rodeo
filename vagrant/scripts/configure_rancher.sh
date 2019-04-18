@@ -41,7 +41,8 @@ function do_login() {
 
 function build_server() {
   # install NFS support
-  apt-get -qq -y install nfs-kernel-server
+  #apt-get -qq -y install nfs-kernel-server
+  yum install -y nfs-utils nfs-utils-lib
 
   docker run -d --restart=unless-stopped -p 80:80 -p 443:443 -v /opt/rancher:/var/lib/rancher rancher/rancher:${rancher_version}
 
@@ -166,6 +167,7 @@ function install_docker() {
       wget -qO- https://releases.rancher.com/install-docker/${docker_version}.sh | sh
     fi
     usermod -aG docker vagrant
+    usermod -aG docker ubuntu
   else
     echo "Skipping Docker install."
   fi

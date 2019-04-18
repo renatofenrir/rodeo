@@ -1,17 +1,17 @@
 default_password: admin
 rancher_version: v2.1.7
 cluster_name: rodeo
-rodeo: true
+rodeo: false
 docker_version:
   server: "18.09"
   node: "18.09"
 server:
-  cpus: 1
+  cpus: 2
   memory: 2000
 node:
   count: 1
   cpus: 2
-  memory: 3000
+  memory: 7000
 ip:
   server: 172.22.101.101
   node:   172.22.101.111
